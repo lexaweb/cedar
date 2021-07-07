@@ -1,0 +1,36 @@
+extends layouts/layout
+
+block variables
+  -const pageTitle ='Main'
+
+block content
+  main
+    .main-page
+      .inner
+        .sidebar
+          .sidebar-item.active
+            +icon('icon_catalog')
+            | Каталог
+          .sidebar-item
+            +icon('icon_my')
+            | Мои заказы
+          .sidebar-item
+            +icon('icon_gear')
+            | Настройки
+        form(action="action.php", method="post")
+          .filter
+            .filter-title_reset
+              .filter-title_reset-title Столешницы
+              a.filter-title_reset-reset(href='/') сбросить
+            .filter-characterization
+              .filter-characterization-title Укажите характеристики изделия:
+              .select
+                .select__header
+                  span.select__current
+                    | Экокожа
+                  +icon('icon_arrow_bottom')
+                .select__body
+                  .select__item
+                    | Экокожа
+                  .select__item
+                    | Кожа
