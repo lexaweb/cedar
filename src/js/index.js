@@ -13,6 +13,7 @@ $(function () {
   sidebarInit()
   sliderInit()
   select()
+  slideractiveInit()
 })
 
 function sidebarInit() {
@@ -37,11 +38,11 @@ function select() {
 }
 
 function sliderInit() {
-  const swiperSlider = new Swiper('.swiper-container', {
-    speed: 400,
-    spaceBetween: 100,
+  const swiperSlider = new Swiper('.filter-decor-slider', {
+    slidesPerView: 2,
+    spaceBetween: 10,
+    loop: true,
     pagination: {
-      el: '.swiper-pagination',
       type: 'bullets'
     },
     navigation: {
@@ -49,4 +50,13 @@ function sliderInit() {
       prevEl: '.swiper-button-prev'
     }
   })
+}
+
+function slideractiveInit() {
+  $('.filter-decor-slider-item').on('click', function () {
+    $(this).addClass('active');
+    $('.filter-decor-slider-item')
+      .not(this)
+      .removeClass('active');
+  });
 }

@@ -4,6 +4,18 @@ block variables
   -const pageTitle ='Main'
 
 block content
+  -
+    var listinglist =[
+      { link: '/', img: 'img/img5.png', alt: 'img5', descr: 'Дуб классический', number: '5270/FL'},
+      { link: '/', img: 'img/img6.png', alt: 'img6', descr: 'Ломбардия', number: '2348/soft'},
+      { link: '/', img: 'img/img7.png', alt: 'img7', descr: 'Crystal Marble', number: '8040/soft'},
+      { link: '/', img: 'img/img8.png', alt: 'img8', descr: 'Паладина', number: '357/1'},
+      { link: '/', img: 'img/img5.png', alt: 'img5', descr: 'Дуб классический', number: '5270/FL'},
+      { link: '/', img: 'img/img6.png', alt: 'img6', descr: 'Ломбардия', number: '2348/soft'},
+      { link: '/', img: 'img/img7.png', alt: 'img7', descr: 'Crystal Marble', number: '8040/soft'},
+      { link: '/', img: 'img/img8.png', alt: 'img8', descr: 'Паладина', number: '357/1'}
+
+    ]
   main
     .main-page
       .inner
@@ -24,13 +36,166 @@ block content
               a.filter-title_reset-reset(href='/') сбросить
             .filter-characterization
               .filter-characterization-title Укажите характеристики изделия:
-              .select
-                .select__header
-                  span.select__current
-                    | Экокожа
-                  +icon('icon_arrow_bottom')
-                .select__body
-                  .select__item
-                    | Экокожа
-                  .select__item
-                    | Кожа
+              .filter-characterization-type
+                .filter-characterization-type-descr Тип столешницы
+                .select
+                  .select__header
+                    span.select__current
+                      | Профстандарт
+                    +icon('icon_arrow_bottom')
+                  .select__body
+                    .select__item
+                      | Профстандарт
+                    .select__item
+                      | Ещестандарт
+                    .select__item
+                      | Нестандарт
+              .filter-characterization-checkbox
+                input#check1(type="checkbox")
+                label.check(for="check1")
+                label.text(for="check1") Нестандартные параметры
+              .filter-characterization-size
+                .filter-characterization-size-descr Размер, мм
+                .select
+                  .select__header
+                    span.select__current
+                      | 3600*600*40
+                    +icon('icon_arrow_bottom')
+                  .select__body
+                    .select__item
+                      | 3600*600*40
+                    .select__item
+                      | 3600*500*30
+                    .select__item
+                      | 3600*400*20
+              .filter-characterization-blockage
+                .filter-characterization-blockage-descr Завал
+                .select
+                  .select__header
+                    span.select__current
+                      | R3
+                    +icon('icon_arrow_bottom')
+                  .select__body
+                    .select__item
+                      | R3
+                    .select__item
+                      | R2
+                    .select__item
+                      | R1
+              .filter-characterization-lot
+                .filter-characterization-lot-descr Кол-во завалов
+                .select
+                  .select__header
+                    span.select__current
+                      | 0
+                    +icon('icon_arrow_bottom_gray')
+                  .select__body
+                    .select__item
+                      | 0
+                    .select__item
+                      | 1
+                    .select__item
+                      | 2
+            .filter-decor
+              .filter-decor-title Выберите декор:
+              .filter-decor-descr Недавние декоры:
+              .filter-decor-slider.swiper-container
+                .swiper-wrapper
+                  .swiper-slide
+                    .filter-decor-slider-item.active
+                      img(src="img/img4.png", alt="")
+                      .filter-decor-slider-item-text Дуб классический (5270/FL)
+                  .swiper-slide
+                    .filter-decor-slider-item
+                      img(src="img/img4.png", alt="")
+                      .filter-decor-slider-item-text Дуб классический (5270/FL)
+                  .swiper-slide
+                    .filter-decor-slider-item
+                      img(src="img/img4.png", alt="")
+                      .filter-decor-slider-item-text Дуб классический (5270/FL)
+                .swiper-button-next
+                .swiper-button-prev
+              .filter-decor-search
+                .filter-decor-search-descr Поиск
+                input(type="search" placeholder='Введите название или артикул')
+              .filter-decor-category
+                .filter-decor-category-descr Категория декора
+                .select
+                  .select__header
+                    span.select__current
+                      | 4
+                    +icon('icon_arrow_bottom')
+                  .select__body
+                    .select__item
+                      | 4
+                    .select__item
+                      | 3
+                    .select__item
+                      | 2
+                    .select__item
+                      | 1
+              .filter-decor-surfaces
+                .filter-decor-surfaces-descr Тип поверхности
+                .select
+                  .select__header
+                    span.select__current
+                      | Матовая
+                    +icon('icon_arrow_bottom')
+                  .select__body
+                    .select__item
+                      | Матовая
+                    .select__item
+                      | Глянцевая
+                    .select__item
+                      | Мраморная
+              .filter-decor-type_decor
+                .filter-decor-type_decor-descr Тип декора
+                .select
+                  .select__header
+                    span.select__current
+                      | Мрамор
+                    +icon('icon_arrow_bottom')
+                  .select__body
+                    .select__item
+                      | Мрамор
+                    .select__item
+                      | Дерево
+                    .select__item
+                      | Вибраниум
+            .filter-listing
+              .filter-listing-inf Найдено: 32 шт.
+              .filter-listing-block
+                each listinglistitem in listinglist
+                  a.filter-listing-block-item(href=listinglistitem.link)
+                    img(src=listinglistitem.img, alt=listinglistitem.alt)
+                    .filter-listing-block-item-descr=listinglistitem.descr
+                    .filter-listing-block-item-number=listinglistitem.number
+          .preview
+            .preview-title Превью заказа:
+            .preview-block
+              .preview-block-img
+                img(src="img/img3.png", alt="img3")
+              .preview-block-descr Дуб классический
+              .preview-block-number 5270/FL
+              .preview-block-parameters
+                .preview-block-parameters-item
+                  | Тип столешницы:
+                  p “Профстандарт”
+                .preview-block-parameters-item
+                  | Размер:
+                  p 3050*1200*38 (нестандарт)
+                .preview-block-parameters-item
+                  | Завал:
+                  p R9
+                .preview-block-parameters-item
+                  | Категория декора:
+                  p 4
+                .preview-block-parameters-item
+                  | Тип поверхности:
+                  p Матовая
+                .preview-block-parameters-item
+                  | Тип декора:
+                  p Дерево
+                .preview-block-parameters-item
+                  | Приблизиительное время изготовления:
+                  p 6 дней

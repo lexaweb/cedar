@@ -46,8 +46,61 @@ body {
         max-width: 100%;
         padding: 0 10px;
       }
-      section {
-        margin-top: 50px;
+    }
+    main {
+      .select {
+        position: relative;
+        font: 400 14px/1.2 $font;
+        cursor: pointer;
+        .select__header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 10px 15px;
+          border: 1px solid $gray-light;
+          border-radius: 8px;
+          margin-bottom: -1px;
+          svg {
+            width: 15px;
+            height: 10px;
+            transition: 0.3s;
+          }
+          .select__current {
+            display: flex;
+            align-items: center;
+          }
+        }
+        &.is-active {
+          z-index: 2;
+          box-shadow: 0 4px 11px rgba(138, 138, 138, 0.1);
+          .select__body {
+            display: block;
+            z-index: 1;
+          }
+          svg {
+            transform: rotate(180deg);
+          }
+        }
+        .select__body {
+          position: absolute;
+          top: 100%;
+          display: none;
+          width: 100%;
+          background: #fff;
+          border: 1px solid $gray-light;
+          border-top: none;
+          border-radius: 8px;
+          .select__item {
+            display: flex;
+            align-items: center;
+            padding: 10px 15px;
+            transition: 0.3s;
+            border-radius: 8px;
+            &:hover {
+              opacity: 0.7;
+            }
+          }
+        }
       }
     }
   }
