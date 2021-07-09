@@ -13,6 +13,12 @@ body {
             background: #fff;
             box-shadow: 0 4px 11px rgba(138, 138, 138, 0.1);
             border-radius: 12px;
+            @include media-tablet-horizontal {
+              width: 19%;
+            }
+            @include media-tablet {
+              display: none;
+            }
             &-item {
               position: relative;
               display: flex;
@@ -61,13 +67,42 @@ body {
             display: flex;
             justify-content: space-between;
             width: 84%;
-            padding: 40px 40px 50px 40px;
+            padding: 40px 40px 50px;
             background: #fff;
             box-shadow: 0 4px 11px rgba(138, 138, 138, 0.1);
             border-radius: 12px;
+            @include media-tablet-horizontal {
+              width: 80%;
+              padding: 25px 25px 50px;
+            }
+            @include media-tablet {
+              width: 100%;
+              padding: 28px 40px 40px;
+            }
+            @include media-mobile {
+              padding: 20px 15px 40px;
+            }
             .filter {
               width: 60%;
               margin-right: 55px;
+              @include media-tablet-horizontal {
+                margin-right: 25px;
+              }
+              @include media-tablet {
+                width: 100%;
+                margin-right: 0;
+              }
+              &-back {
+                display: none;
+                font: 400 14px/16px $font;
+                letter-spacing: 0.02em;
+                text-decoration: underline;
+                color: #000;
+                margin-bottom: 26px;
+                @include media-tablet {
+                  display: block;
+                }
+              }
               &-title_reset {
                 display: flex;
                 justify-content: space-between;
@@ -103,6 +138,16 @@ body {
                   width: 52%;
                   margin-right: 20px;
                   margin-bottom: 16px;
+                  @include media-tablet-horizontal {
+                    width: 55%;
+                  }
+                  @include media-tablet {
+                    width: 62%;
+                  }
+                  @include media-mobile {
+                    width: 100%;
+                    margin-right: 0;
+                  }
                   &-descr {
                     font: 400 13px/1.2 $font;
                     margin-bottom: 8px;
@@ -110,6 +155,9 @@ body {
                   .select__header {
                     position: relative;
                     padding-left: 41px;
+                    @include media-mobile {
+                      padding-left: 15px;
+                    }
                     &::before {
                       position: absolute;
                       content: '';
@@ -119,12 +167,24 @@ body {
                       height: 18px;
                       background: url("data:image/svg+xml,%3Csvg width='18' height='18' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M18 9A9 9 0 110 9a9 9 0 0118 0zM4.497 8.767a1 1 0 011.414 0l1.668 1.668 4.51-4.51a1 1 0 111.414 1.414l-5.217 5.217a1 1 0 01-1.414 0l-2.375-2.375a1 1 0 010-1.414z' fill='%2374AD96'/%3E%3C/svg%3E") no-repeat center/cover;
                       transform: translateY(-50%);
+                      @include media-mobile {
+                        display: none;
+                      }
                     }
                   }
                 }
                 &-checkbox {
                   display: flex;
                   align-items: center;
+                  @include media-tablet-horizontal {
+                    margin-bottom: 25px;
+                  }
+                  @include media-tablet {
+                    margin-bottom: 0;
+                  }
+                  @include media-custom {
+                    margin-bottom: 28px;
+                  }
                   .check {
                     position: relative;
                     width: 20px;
@@ -169,6 +229,20 @@ body {
                 &-size {
                   width: 52%;
                   margin-right: 20px;
+                  @include media-laptop {
+                    width: 49%;
+                  }
+                  @include media-tablet {
+                    width: 45%;
+                  }
+                  @include media-custom {
+                    width: 62%;
+                  }
+                  @include media-mobile {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-bottom: 16px;
+                  }
                   &-descr {
                     font: 400 13px/1.2 $font;
                     margin-bottom: 8px;
@@ -180,6 +254,11 @@ body {
                 &-blockage {
                   width: 20%;
                   margin-right: 20px;
+                  @include media-mobile {
+                    width: 100%;
+                    margin-right: 0;
+                    margin-bottom: 16px;
+                  }
                   &-descr {
                     font: 400 13px/1.2 $font;
                     margin-bottom: 8px;
@@ -190,6 +269,24 @@ body {
                 }
                 &-lot {
                   width: 20%;
+                  @include media-laptop {
+                    width: 22%;
+                  }
+                  @include media-tablet-horizontal {
+                    width: 29%;
+                    margin-top: 16px;
+                  }
+                  @include media-tablet {
+                    width: 23%;
+                    margin-top: 0;
+                  }
+                  @include media-custom {
+                    margin-top: 16px;
+                  }
+                  @include media-mobile {
+                    width: 100%;
+                    margin-right: 0;
+                  }
                   &-descr {
                     font: 400 13px/1.2 $font;
                     margin-bottom: 8px;
@@ -224,6 +321,9 @@ body {
                   position: relative;
                   padding-left: 42px;
                   margin-bottom: 16px;
+                  @include media-mobile {
+                    padding-left: 25px;
+                  }
                   &-item {
                     display: flex;
                     align-items: center;
@@ -232,12 +332,20 @@ body {
                     border: 1px solid transparent;
                     border-radius: 14px;
                     cursor: pointer;
+                    @include media-mobile {
+                      width: 190px;
+                    }
                     img {
                       margin-right: 5px;
                     }
                     &-text {
                       font: 400 14px/1.2 $font;
                       letter-spacing: 0.02em;
+                      @include media-mobile {
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                      }
                     }
                     &.active {
                       border: 1px solid #335a4a;
@@ -254,6 +362,9 @@ body {
                       width: 42px;
                       height: 100%;
                       background: #fff;
+                      @include media-mobile {
+                        width: 25px;
+                      }
                     }
                     &::before {
                       position: absolute;
@@ -264,6 +375,9 @@ body {
                       width: 42px;
                       height: 100%;
                       background: linear-gradient(270deg, #fff 41.85%, rgba(255, 255, 255, 0) 100%);
+                      @include media-mobile {
+                        width: 25px;
+                      }
                     }
                   }
                   .swiper-button-next,
@@ -313,6 +427,16 @@ body {
                   width: 48%;
                   margin-right: 20px;
                   margin-bottom: 15px;
+                  @include media-tablet-horizontal {
+                    width: 54%;
+                  }
+                  @include media-tablet {
+                    width: 47%;
+                  }
+                  @include media-mobile {
+                    width: 100%;
+                    margin-right: 0;
+                  }
                   &-descr {
                     font: 400 13px/1.2 $font;
                     margin-bottom: 8px;
@@ -321,6 +445,19 @@ body {
                 &-surfaces {
                   width: 48%;
                   margin-bottom: 15px;
+                  @include media-laptop {
+                    width: 47%;
+                  }
+                  @include media-tablet-horizontal {
+                    width: 54%;
+                  }
+                  @include media-tablet {
+                    width: 48%;
+                  }
+                  @include media-mobile {
+                    width: 100%;
+                    margin-right: 0;
+                  }
                   &-descr {
                     font: 400 13px/1.2 $font;
                     margin-bottom: 8px;
@@ -328,6 +465,16 @@ body {
                 }
                 &-type_decor {
                   width: 48%;
+                  @include media-tablet-horizontal {
+                    width: 54%;
+                  }
+                  @include media-tablet {
+                    width: 47%;
+                    margin-right: 0;
+                  }
+                  @include media-mobile {
+                    width: 100%;
+                  }
                   &-descr {
                     font: 400 13px/1.2 $font;
                     margin-bottom: 8px;
@@ -339,14 +486,50 @@ body {
                   margin-bottom: 3px;
                   font: 400 12px/1.2 $font;
                   color: #545454;
+                  @include media-mobile {
+                    margin-bottom: 15px;
+                  }
                 }
                 &-block {
                   display: flex;
                   justify-content: space-between;
                   flex-wrap: wrap;
+                  @include media-mobile {
+                    display: none;
+                  }
                   &-item {
                     width: calc((100% - 20px) / 2);
                     margin-top: 15px;
+                    &:hover {
+                      opacity: 0.7;
+                      transition: 0.3s;
+                    }
+                    &:focus {
+                      box-shadow: 0 4px 11px rgba(138, 138, 138, 0.1);
+                    }
+                    &:active {
+                      text-decoration: underline;
+                    }
+                    img {
+                      margin-bottom: 4px;
+                    }
+                    &-descr {
+                      font: 400 12px/1.2 $font;
+                      color: #000;
+                    }
+                    &-number {
+                      font: 300 12px/1.2 $font;
+                      color: #000;
+                    }
+                  }
+                }
+                &-slider {
+                  display: none;
+                  @include media-mobile {
+                    display: flex;
+                  }
+                  &-item {
+                    width: 167px;
                     &:hover {
                       opacity: 0.7;
                       transition: 0.3s;
@@ -376,6 +559,9 @@ body {
               position: sticky;
               top: 40px;
               height: fit-content;
+              @include media-tablet {
+                display: none;
+              }
               &-title {
                 margin-bottom: 28px;
                 font: 400 14px/1.2 $font;
@@ -427,15 +613,19 @@ body {
                   display: flex;
                   justify-content: space-between;
                   margin-bottom: 30px;
+                  @include media-tablet-horizontal {
+                    flex-wrap: wrap;
+                  }
                   &-number {
                     &.number {
                       display: flex;
                       justify-content: space-between;
-                      width: 37%;
+                      width: 45%;
                       border: 1px solid $gray-light;
                       border-radius: 8px;
-                      @include media-tablet {
-                        margin-right: 10px;
+                      @include media-tablet-horizontal {
+                        width: 66%;
+                        margin-bottom: 20px;
                       }
                       span {
                         font: 500 24px/28px $font;
@@ -449,6 +639,7 @@ body {
                         cursor: pointer;
                         transition: 0.3s;
                         &:hover {
+                          opacity: 0.7;
                         }
                       }
                       input {
@@ -467,6 +658,7 @@ body {
                         cursor: pointer;
                         transition: 0.3s;
                         &:hover {
+                          opacity: 0.7;
                         }
                       }
                     }
@@ -474,6 +666,9 @@ body {
                   &-cost {
                     font: 500 24px/28px $font;
                     text-align: right;
+                    @include media-tablet-horizontal {
+                      text-align: left;
+                    }
                     &-red {
                       font: 500 12px/14px $font;
                       text-decoration: line-through;

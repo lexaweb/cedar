@@ -39,17 +39,28 @@ function select() {
 }
 
 function sliderInit() {
+  if ($('.filter-decor-slider').length > 0) {
   const swiperSlider = new Swiper('.filter-decor-slider', {
     slidesPerView: 2,
     spaceBetween: 10,
     loop: true,
-    pagination: {
-      type: 'bullets'
-    },
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev'
-    }
+    },
+    breakpoints: {
+      320: {
+        slidesPerView: 1,
+      },
+      520: {
+        slidesPerView: 2,
+        }
+      }
+    })
+  }
+  const swiperSlider = new Swiper('.filter-listing-slider', {
+    slidesPerView: 1.5,
+    loop: true,
   })
 }
 

@@ -31,6 +31,7 @@ block content
             | Настройки
         form(action="action.php", method="post")
           .filter
+            a.filter-back(href='/') назад
             .filter-title_reset
               .filter-title_reset-title Столешницы
               a.filter-title_reset-reset(href='/') сбросить
@@ -170,6 +171,14 @@ block content
                     img(src=listinglistitem.img, alt=listinglistitem.alt)
                     .filter-listing-block-item-descr=listinglistitem.descr
                     .filter-listing-block-item-number=listinglistitem.number
+              .filter-listing-slider.swiper-container
+                .swiper-wrapper
+                  each listinglistitem in listinglist
+                    .swiper-slide
+                      a.filter-listing-slider-item(href=listinglistitem.link)
+                        img(src=listinglistitem.img, alt=listinglistitem.alt)
+                        .filter-listing-slider-item-descr=listinglistitem.descr
+                        .filter-listing-slider-item-number=listinglistitem.number
           .preview
             .preview-title Превью заказа:
             .preview-block

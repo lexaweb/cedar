@@ -23,8 +23,8 @@
     @content;
   }
 }
-@mixin media-custom($width) {
-  @media (max-width: $width) {
+@mixin media-custom {
+  @media (max-width: $custom) {
     @content;
   }
 }
